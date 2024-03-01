@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
-  styleUrls: ['./tab4.page.scss'],
-  standalone: true,
-  imports: [IonicModule, CommonModule],
+  styleUrls: ['./tab4.page.scss']
 })
 export class Tab4Page implements OnInit {
 
@@ -19,11 +16,10 @@ export class Tab4Page implements OnInit {
   ];
   total = 0;
 
-  constructor() {
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    for(let i = 0; i < this.items.length; i++) {
+    for (let i = 0; i < this.items.length; i++) {
       this.total += this.items[i].price * this.items[i].quantity;
     }
   }
@@ -35,10 +31,17 @@ export class Tab4Page implements OnInit {
 
   minusQuantity(index: number) {
     this.total -= this.items[index].price;
-    if(this.items[index].quantity > 1) this.items[index].quantity--;
-    else {
-      this.items = this.items.filter((item) => item.id != this.items[index].id);
+    if (this.items[index].quantity > 1) {
+      this.items[index].quantity--;
+    } else {
+      this.items = this.items.filter((item) => item.id !== this.items[index].id);
     }
   }
 
+  navigateToTab4() {
+    this.router.navigate(['/tabs/tab1']);
+  }
+  navigateToAccount() {
+    this.router.navigate(['/tabs/tab3']);
+  }
 }

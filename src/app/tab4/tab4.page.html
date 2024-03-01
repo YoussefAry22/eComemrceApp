@@ -3,10 +3,10 @@
     <ion-title size="large" style="margin-top: 3%; margin-left: 20%;">
       My Cart
     </ion-title>
-    <ion-buttons slot="start" style="margin-top: 3%;">
+    <ion-buttons slot="start" (click)="navigateToTab4()" style="margin-top: 3%;">
       <ion-back-button defaultHref="/tab1"></ion-back-button>
     </ion-buttons>
-    <ion-buttons slot="end" defaultHref="/tab3">
+    <ion-buttons slot="end" defaultHref="/tab3" (click)="navigateToAccount()">
       <ion-avatar>
         <img src="assets/img/avatar.png" />
       </ion-avatar>

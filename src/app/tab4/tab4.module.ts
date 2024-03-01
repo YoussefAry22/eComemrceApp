@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-
-import { Tab4Page } from './tab4.page'; 
+import { Tab4Page } from './tab4.page';
 
 @NgModule({
   imports: [
@@ -16,7 +15,7 @@ import { Tab4Page } from './tab4.page';
       }
     ])
   ],
-  declarations: [], 
+  declarations: [Tab4Page],
   providers: []
 })
 export class Tab4PageModule {}
