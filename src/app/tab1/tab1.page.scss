@@ -1,0 +1,23 @@
+.custom-title {
+    color: #365486; // Change this to whatever color you want
+  }
+
+  $colors: (
+    primary: #3880ff,
+    secondary: #0cd1e8,
+    success: #10dc60,
+    danger: #f04141,
+    light: #f4f5f8,
+    dark: #222428,
+    custom-color: #000000 // Define your custom color here
+  );
+  
+  /* In your component's SCSS file (e.g., your-component.scss) */
+.custom-card {
+    --background: #365486; /* Change this to the desired background color */
+  }
+
+ion-item.custom-item {
+    --background: #24447b; /* Change this to the desired text color */
+  }
+  
