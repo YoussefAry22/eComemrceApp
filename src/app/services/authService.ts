@@ -1,13 +1,23 @@
 // auth.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  API_URL = environment.API_URL;
+  constructor(private http:HttpClient) {}
 
+  userLogin(req: any){
+    return this.http.post(`${this.API_URL}login`,req);
+  }
+
+  userRegister(req: any){
+    return this.http.post(`${this.API_URL}register`,req);
+  }
   login(email: string, password: string): Promise<void> {
     // Here you would typically call your backend API to authenticate the user
     // For demonstration purposes, let's assume authentication is successful
