@@ -1,0 +1,28 @@
+<!-- login.page.html -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <ion-item lines="none">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" clearInput></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" (click)="login()">Sign In</ion-button>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <a routerLink="/forgot-password">Forgot Password?</a>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
