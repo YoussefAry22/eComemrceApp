@@ -1,34 +1,45 @@
-
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Register</ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content [fullscreen]="true">
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">First name</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+  <div class="container">
+    <h1 class="heading">Create Account</h1>
+    <p class="para">Sign up to get started!</p>
+    
+    <form [formGroup]="formData">
+      <!-- Full Name -->
+      <ion-item lines="none" class="ion-item">
+        <fieldset class="input-item">
+          <legend>Full Name</legend>
+          <ion-input formControlName="name" type="text" placeholder="John Doe"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item *ngIf="formData.get('name')?.invalid && formData.get('name')?.touched" lines="none">
+        <p class="error-message" *ngIf="formData.get('name')?.hasError('required')">Full Name is required</p>
+      </ion-item>
+
+      <!-- Email -->
+      <ion-item lines="none" class="ion-item">
+        <fieldset class="input-item">
+          <legend>Email Id</legend>
+          <ion-input formControlName="email" type="email" placeholder="john@doe.com"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item *ngIf="formData.get('email')?.invalid && formData.get('email')?.touched" lines="none">
+        <p class="error-message" *ngIf="formData.get('email')?.hasError('required')">Email is required</p>
+        <p class="error-message" *ngIf="formData.get('email')?.hasError('email')">Invalid email format</p>
+      </ion-item>
+
+      <!-- Password -->
+      <ion-item lines="none" class="ion-item">
+        <fieldset class="input-item">
+          <legend>Password</legend>
+          <ion-input formControlName="password" type="password" placeholder="*******"></ion-input>
+        </fieldset>
+      </ion-item>
+      <ion-item *ngIf="formData.get('password')?.invalid && formData.get('password')?.touched" lines="none">
+        <p class="error-message" *ngIf="formData.get('password')?.hasError('required')">Password is required</p>
+      </ion-item>
+
+      <!-- Sign Up Button -->
+      <ion-button class="login-button" (click)="register()" expand="block" [disabled]="!formData.valid || isLoading">Sign Up</ion-button>
+    </form>
+  </div>
 </ion-content>
