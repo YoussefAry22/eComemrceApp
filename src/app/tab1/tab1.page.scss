@@ -13,11 +13,15 @@
   );
   
   /* In your component's SCSS file (e.g., your-component.scss) */
+  .custom-card-special {
+    --background: #222e41; 
+  }
+
 .custom-card {
-    --background: #365486; 
+    --background: #222e41; 
   }
 
 ion-item.custom-item {
-    --background: #24447b; /* Change this to the desired text color */
+    --background: #192231; /* Change this to the desired text color */
   }
   
